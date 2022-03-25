@@ -1,0 +1,27 @@
+version: '3.5'
+
+services:
+  mailman:
+    image: avillalba96/docker-mailman:1.0
+    restart: unless-stopped
+    container_name: mailman
+    hostname: mailman
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2048M
+    volumes:
+    - ./mailman-cfg/etc/mailman/:/etc/mailman/
+    - ./mailman-cfg/lib/mailman:/var/lib/mailman
+#    - ./mailman-cfg/log/mailman:/var/log/mailman
+#    - ./mailman-cfg/spool/postfix:/var/spool/postfix
+    environment:
+    - MAILMAN_URLHOST=www.example.com #mailmanurl
+    - MAILMAN_EMAILHOST=example.com #postfixdomain
+    - MAILMAN_ADMINMAIL=admin@example.com #useradm
+    - MAILMAN_ADMINPASS=password #userpass
+    - MAILMAN_LANGUAGE=en #mailmanlanguage
+    ports:
+    - "80:80"
+    - "25:25"
