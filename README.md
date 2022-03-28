@@ -14,7 +14,7 @@ docker-compose --compatibility up -d; docker-compose logs -ft --tail=35
 * Web site:
 
 ```bash
-localhost:80
+localhost:80/listinfo
 ```
 
 * Generate list:
