@@ -33,6 +33,19 @@ docker exec -it mailman sh -c "/usr/lib/mailman/bin/genaliases -q > /etc/aliases
 docker exec -it mailman sh -c "mail -s 'Test' list@example.com < '/etc/hosts'"
 ```
 
+* Migrate mailman:
+
+```bash
+rsync -avz /var/lib/mailman/lists user@docker-server:/PATH/mailman-cfg/lib/mailman
+rsync -avz /var/lib/mailman/archives user@docker-server:/PATH/mailman-cfg/lib/mailman
+#rsync -avz /var/lib/mailman/data user@docker-server:/PATH/mailman-cfg/lib/mailman
+```
+
+```bash
+docker exec -it mailman sh -c "/usr/lib/mailman/bin/genaliases -q > /etc/aliases.mailman && newaliases"
+docker exec -it mailman sh -c "/usr/lib/mailman/bin/withlist -l -r fix_url LIST -u NEW_URL"
+```
+
 ## **Environment Configs:**
 
 * `MAILMAN_URLHOST` - Mailman url host eg `www.example.com`
@@ -46,3 +59,7 @@ SSL options for opportunistic SMTP TLS:
 * `MAILMAN_SSL_CRT` - SSL Certificate (optional)
 * `MAILMAN_SSL_KEY` - SSL Key (optional)
 * `MAILMAN_SSL_CA` - SSL CA (optional)
+
+## **FUENTE:**
+
+<https://github.com/macropin/docker-mailman>

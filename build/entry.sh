@@ -38,7 +38,7 @@ fi
 mmsitepass $MAILMAN_ADMINPASS
 
 sed -i -e "s@^DEFAULT_EMAIL_HOST.*@DEFAULT_EMAIL_HOST = \'${MAILMAN_EMAILHOST}\'@g" /etc/mailman/mm_cfg.py
-sed -i -e "s@^DEFAULT_URL_HOST.*@DEFAULT_URL_HOST = \'${MAILMAN_EMAILHOST}\'@g" /etc/mailman/mm_cfg.py
+sed -i -e "s@^DEFAULT_URL_HOST.*@DEFAULT_URL_HOST = \'${MAILMAN_URLHOST}\'@g" /etc/mailman/mm_cfg.py
 sed -i -e "s@^DEFAULT_SERVER_LANGUAGE.*@DEFAULT_SERVER_LANGUAGE = \'${MAILMAN_LANGUAGE}\'@g" /etc/mailman/mm_cfg.py
 
 # Fix Postfix settings
