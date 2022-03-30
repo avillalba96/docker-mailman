@@ -55,7 +55,7 @@ docker exec -it mailman sh -c "/usr/lib/mailman/bin/withlist -l -r fix_url LIST 
 
 ## **Environment Configs:**
 
-* `MAILMAN_URLHOST` - Mailman url host eg `www.example.com`
+* `MAILMAN_URLHOST` - Mailman url host eg `www.example.com:8080`
 * `MAILMAN_EMAILHOST` - Mailman email host eg `example.com`
 * `MAILMAN_ADMINMAIL` - Mailman administrator email address eg `admin@example.com`
 * `MAILMAN_ADMINPASS` - Mailman administrator password
