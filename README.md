@@ -8,6 +8,7 @@ All in one Docker image for GNU
 ```bash
 git clone https://github.com/avillalba96/docker-mailman.git
 cd docker-mailman
+#edit env
 docker-compose --compatibility up -d; docker-compose logs -ft --tail=35
 ```
 
@@ -69,6 +70,6 @@ SSL options for opportunistic SMTP TLS:
 * `MAILMAN_SSL_KEY` - SSL Key (optional)
 * `MAILMAN_SSL_CA` - SSL CA (optional)
 
-## **FUENTE:**
+## **Source:**
 
 <https://github.com/macropin/docker-mailman>
