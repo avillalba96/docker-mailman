@@ -6,6 +6,8 @@ All in one Docker image for GNU
 ## **Install:**
 
 ```bash
+git clone https://github.com/avillalba96/docker-mailman.git
+cd docker-mailman
 docker-compose --compatibility up -d; docker-compose logs -ft --tail=35
 ```
 
