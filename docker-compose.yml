@@ -15,11 +15,11 @@ services:
     - ./mailman-cfg/etc/mailman/:/etc/mailman/
     - ./mailman-cfg/lib/mailman:/var/lib/mailman
     environment:
-    - MAILMAN_URLHOST=www.example.com #mailmanurl
+    - MAILMAN_URLHOST=www.example.com:8080 #mailmanurl:8080
     - MAILMAN_EMAILHOST=example.com #postfixdomain
     - MAILMAN_ADMINMAIL=admin@example.com #useradm
     - MAILMAN_ADMINPASS=password #userpass
     - MAILMAN_LANGUAGE=en #mailmanlanguage
     ports:
-    - "80:80"
+    - "8080:80"
     - "25:25"

@@ -33,6 +33,13 @@ docker exec -it mailman sh -c "/usr/lib/mailman/bin/genaliases -q > /etc/aliases
 docker exec -it mailman sh -c "mail -s 'Test' list@example.com < '/etc/hosts'"
 ```
 
+* Del list:
+
+```bash
+docker exec -it mailman sh -c "/usr/lib/mailman/bin/rmlist -a LIST"
+docker exec -it mailman sh -c "/usr/lib/mailman/bin/genaliases -q > /etc/aliases.mailman && newaliases"
+```
+
 * Migrate mailman:
 
 ```bash
