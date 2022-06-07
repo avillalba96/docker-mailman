@@ -34,6 +34,7 @@ docker exec -it mailman sh -c "/usr/lib/mailman/bin/genaliases -q > /etc/aliases
 
 ```bash
 docker exec -it mailman sh -c "mail -s 'Test' list@example.com < '/etc/hosts'"
+#swaks --to "list@example.com" --from "user@example.com" --server "localhost:25"
 ```
 
 * Del list:
@@ -49,6 +50,7 @@ docker exec -it mailman sh -c "/usr/lib/mailman/bin/genaliases -q > /etc/aliases
 rsync -avz /var/lib/mailman/lists user@docker-server:/PATH/mailman-cfg/lib/mailman
 rsync -avz /var/lib/mailman/archives user@docker-server:/PATH/mailman-cfg/lib/mailman
 #rsync -avz /var/lib/mailman/data user@docker-server:/PATH/mailman-cfg/lib/mailman
+chown -R root.list mailman-cfg/lib/mailman/
 ```
 
 ```bash
