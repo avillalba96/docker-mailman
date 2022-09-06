@@ -4,8 +4,8 @@ services:
   mailman:
     image: avillalba96/docker-mailman:1.1
     restart: unless-stopped
-    container_name: mailman
-    hostname: mailman
+    container_name: smtp1.example.com.ar
+    hostname: smtp1.example.com.ar
     deploy:
       resources:
         limits:
