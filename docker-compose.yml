@@ -25,3 +25,23 @@ services:
     ports:
     - "80:80"
     - "2525:25"
+    labels:
+      ofelia.enabled: "true"
+      ofelia.job-exec.newalias.schedule: "@every 15m"
+      ofelia.job-exec.newalias.command: bash -c "/usr/lib/mailman/bin/genaliases -q > /etc/aliases.mailman && newaliases"
+
+  ofelia:
+    image: mcuadros/ofelia:latest
+    container_name: ofelia
+    hostname: ofelia
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+    depends_on:
+      - mailman
+    command: daemon --docker
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
